@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "author": "RUMIRIS BUTARBUTAR",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 86.4, "left": 4.84, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -95.7, "left": -168.6, "attrs": {} },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd2",
+      "top": -118.4,
+      "left": -23.2,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 137.6,
+      "left": 173.6,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v57.6", "h278.4", "v38.4" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v96", "h163.2" ] ],
+    [ "esp:22", "lcd2:SCL", "green", [ "h48", "v-57.6", "h-192", "v-134.7" ] ],
+    [ "esp:21", "lcd2:SDA", "green", [ "h48", "v-86.4", "h-201.6", "v-144.2" ] ],
+    [ "lcd2:VCC", "esp:3V3", "red", [ "h-38.4", "v192.1" ] ],
+    [ "lcd2:GND", "esp:GND.2", "black", [ "h-38.4", "v163.2", "h211.2", "v38.4" ] ],
+    [ "dht1:SDA", "esp:13", "green", [ "v0" ] ],
+    [ "ldr1:AO", "esp:33", "gold", [ "h28.8", "v143.3", "h-441.6", "v-144" ] ],
+    [ "ldr1:GND", "esp:GND.2", "black", [ "h28.8", "v-48.4" ] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "h28.8", "v-76.8", "h-364.95" ] ]
+  ],
+  "dependencies": {}
+}
